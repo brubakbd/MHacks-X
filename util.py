@@ -29,7 +29,6 @@ def org_data(data, prefs, rprefs):
     fil = open("types.txt", "r")
     types = fil.read().replace("\"", "").replace("\n","").split(",")
     arr = np.zeros((1, 260))
-    print(data)
     for i in prefs:
         if i['type'] != 'dummy':
             m = types.index(i['type'])
@@ -37,7 +36,7 @@ def org_data(data, prefs, rprefs):
     if 'rating' in data:
         arr[0][129] = data['rating'] / 5
     else:
-        arr[0][129] = .2
+        arr[0][129] = .6
     for i in rprefs:
         m = types.index(i)
         arr[0][m + 130] = 1

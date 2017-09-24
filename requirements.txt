@@ -1,0 +1,6 @@
+Flask==0.12.2
+Flask-Cors==3.0.3
+Flask-JWT-Extended==3.3.1
+Flask-PyMongo==0.5.1
+googlemaps==2.5.1
+pymongo==3.5.1

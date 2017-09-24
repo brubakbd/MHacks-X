@@ -1,2 +1,1 @@
-worker: npm i
-worker: python ./server/backend.py
+worker: python backend.py

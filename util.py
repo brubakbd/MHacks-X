@@ -3,7 +3,7 @@ import json
 import numpy as np
 
 def load_data():
-    data = requests.get("http://localhost:5000/train")
+    data = requests.get("https://foodphoriadb.herokuapp.com/train")
     fil = open("types.txt", "r")
     types = fil.read().replace("\"", "").replace("\n","").split(",")
     count = 0

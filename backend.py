@@ -31,6 +31,7 @@ def main():
 @app.route('/recm', methods=['POST'])
 def recm():
     data = json.loads(request.data)
+    print("data", data)
     types = data['types']
     past = data['past']
     loc = data['location']
@@ -39,6 +40,11 @@ def recm():
     # print data
     # print types[3]
     places = None
+    print("types", types)
+    for i in range(2,5):
+        if len(types) < i:
+            print i-1
+            types.append({'weight':0, 'type':"dummy"})
     k=0
     if r < types[3]['weight']:
         k=3
@@ -64,7 +70,7 @@ def recm():
     if 'price_level' in places[i]:
         plevel = places[i]['price_level']
     placeInfo = gmaps.place(places[i]['place_id'])
-    return jsonify({"placeInfo":placeInfo, "dist":dist, "rprefs":types[k]['type'], "plevel":plevel})
+    return jsonify({"placeInfo":placeInfo, "dist":dist, "rprefs":[types[k]['type']], "plevel":plevel})
 
 @cross_origin()
 @app.route('/testbitch', methods=['GET'])

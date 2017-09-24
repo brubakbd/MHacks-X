@@ -42,13 +42,13 @@ def recm():
     places = None
     print("types", types)
     k=0
-    if r < types[3]['weight']:
+    if len(types) >=4 and r < types[3]['weight']:
         k=3
         places = gmaps.places_nearby(keyword=types[3]['type'], location=location, radius=24140, type='restaurant')['results']
-    elif r < types[2]['weight'] + types[3]['weight']:
+    elif len(types) >=3 and r < types[2]['weight'] + types[3]['weight']:
         k=2
         places = gmaps.places_nearby(keyword=types[2]['type'], location=location, radius=24140, type='restaurant')['results']
-    elif r < types[1]['weight'] + types[2]['weight'] + types[3]['weight']:
+    elif len(types) >=2 and r < types[1]['weight'] + types[2]['weight'] + types[3]['weight']:
         k=1
         places = gmaps.places_nearby(keyword=types[1]['type'], location=location, radius=24140, type='restaurant')['results']
     else:

@@ -34,7 +34,7 @@ def org_data(data, prefs, rprefs):
         if i['type'] != 'dummy':
             m = types.index(i['type'])
             arr[0][m] = 1
-    arr[129] = data['rating'] / 5
+    arr[0][129] = data['rating'] / 5
 
     for i in rprefs:
         m = types.index(i)

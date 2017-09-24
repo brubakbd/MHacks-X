@@ -62,7 +62,7 @@ def recm():
 
     # for i in range(0,len(places)):
     #     places[i]['pred'] = predict([org_data(places[i],types,[types[k]['type']])])[0]
-    places.sort(key=sortStuff(), reverse=True)
+    places.sort(key=sortStuff, reverse=True)
     i=0
     # Replace current while check with the below once data is sorted out
     # while places[i]['name'] in past or 'opening_hours' not in places[i] or 'open_now' not in places[i]['opening_hours'] or not places[i]['opening_hours']['open_now']:

@@ -60,8 +60,9 @@ def recm():
     else:
         places = gmaps.places_nearby(keyword=types[0]['type'], location=location, radius=24140, type='restaurant')['results']
 
+    temp = predict(org_data(places,types,[types[k]['type']]))
     for i in range(0,len(places)):
-        places[i]['pred'] = predict([org_data(places[i],types,[types[k]['type']])])[0]
+        places[i]['pred'] = temp[i]
     places.sort(key=sortStuff, reverse=True)
     i=0
     # Replace current while check with the below once data is sorted out

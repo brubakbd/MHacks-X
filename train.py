@@ -18,6 +18,6 @@ model.add(Dropout(.5))
 model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss = keras.losses.mean_squared_error, optimizer = keras.optimizers.Adam())
-model.fit(x_train, y_train, batch_size=1, epochs=2000, verbose=1, validation_data=(x_train, y_train))
+model.fit(x_train, y_train, batch_size=10, epochs=1000, verbose=1, validation_data=(x_train, y_train))
 score = model.evaluate(x_train, y_train, verbose = 0)
 print(model.predict(x_train))

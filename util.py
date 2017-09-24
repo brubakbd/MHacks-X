@@ -32,12 +32,12 @@ def org_data(data, prefs, rprefs):
     count = 0
     for j in data:
         for i in prefs:
-            m = types.index[i]
+            m = types.index(i)
             arr[count][m] = 1
         if 'rating' in j:
             arr[count][129] = j['rating'] / 5
         for i in rprefs:
-            m = types.index[i]
+            m = types.index(i)
             arr[count][m+130] = 1
         if 'price_level' in j:
             arr[count][259] = j['price_level'] / 4

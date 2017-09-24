@@ -14,7 +14,7 @@ gmaps = googlemaps.Client(key='AIzaSyD2A-7qrmxUA4MpTUGojfIhpl2LQF-RF9w')
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'food'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/food'
+app.config['MONGO_URI'] = 'mongodb://user:batman@ds149144.mlab.com:49144/heroku_lk9pkdvb'
 
 app.debug = True
 app.secret_key = 'secretBATMAN123'

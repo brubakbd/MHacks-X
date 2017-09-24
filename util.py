@@ -31,8 +31,9 @@ def org_data(data, prefs, rprefs):
     arr = np.zeros((1, 260))
 
     for i in prefs:
-        m = types.index(i['type'])
-        arr[0][m] = 1
+        if i['type'] != 'dummy':
+            m = types.index(i['type'])
+            arr[0][m] = 1
     arr[129] = data['grating'] / 5
 
     for i in rprefs:

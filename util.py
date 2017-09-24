@@ -28,7 +28,7 @@ def load_data():
 def org_data(data, prefs, rprefs):
     fil = open("types.txt", "r")
     types = fil.read().replace("\"", "").replace("\n","").split(",")
-    arr = np.zeros(1, 260)
+    arr = np.zeros((1, 260))
 
     for i in prefs:
         m = types.index(i['type'])

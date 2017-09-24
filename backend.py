@@ -112,7 +112,7 @@ def train():
 
 def sortStuff(json):
     try:
-        return json['pred']
+        return (json['pred'] + json['rating'])/2
     except:
         return 0
 

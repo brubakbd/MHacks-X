@@ -32,7 +32,7 @@ def org_data(data, prefs, rprefs):
     count = 0
     for j in data:
         for i in prefs:
-            if types.index(i['type']) != 'dummy':
+            if i['type'] != 'dummy':
                 m = types.index(i['type'])
                 arr[count][m] = 1
         if 'rating' in j:

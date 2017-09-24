@@ -70,7 +70,7 @@ def recm():
     if 'price_level' in places[i]:
         plevel = places[i]['price_level']
     placeInfo = gmaps.place(places[i]['place_id'])
-    return jsonify({"placeInfo":placeInfo, "dist":dist, "rprefs":types[k]['type'], "plevel":plevel})
+    return jsonify({"placeInfo":placeInfo, "dist":dist, "rprefs":[types[k]['type']], "plevel":plevel})
 
 @cross_origin()
 @app.route('/testbitch', methods=['GET'])

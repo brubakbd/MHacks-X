@@ -45,6 +45,3 @@ def org_data(data, prefs, rprefs):
     arr[259] = plevel / 4
     x = np.array(arr, dtype='float32')
     return x
-
-
-load_data()

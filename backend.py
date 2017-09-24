@@ -5,9 +5,8 @@ from flask_pymongo import PyMongo
 import googlemaps
 import random
 import json
-from datetime import datetime
+import os
 from bson import json_util
-from bson import BSON
 
 gmaps = googlemaps.Client(key='AIzaSyD2A-7qrmxUA4MpTUGojfIhpl2LQF-RF9w')
 
@@ -106,4 +105,5 @@ def sortStuff(json):
         return 0
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=80)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0',port=port)

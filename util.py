@@ -25,7 +25,26 @@ def load_data():
     y = np.array(y, dtype='float32')
     return x, y
     
-    
+def org_data(data, prefs, rprefs):
+    fil = open("types.txt", "r")
+    types = fil.read().replace("\"", "").replace("\n","").split(",")
+    arr = np.zeros(1, 260)
+
+    for i in prefs:
+        m = types.index(i['type'])
+        arr[m] = 1
+    arr[129] = data['grating'] / 5
+
+    for i in rprefs:
+        m = types.index(i)
+        arr[m + 130] = 1
+
+    plevel = 2
+    if 'price_level' in data:
+        plevel = data['price_level']
+    arr[259] = plevel / 4
+    x = np.array(arr, dtype='float32')
+    return x
 
 
 load_data()

@@ -7,6 +7,8 @@ import random
 import json
 import os
 from bson import json_util
+from util import org_data
+from predict import predict
 
 gmaps = googlemaps.Client(key='AIzaSyD2A-7qrmxUA4MpTUGojfIhpl2LQF-RF9w')
 
@@ -58,8 +60,12 @@ def recm():
     else:
         places = gmaps.places_nearby(keyword=types[0]['type'], location=location, radius=24140, type='restaurant')['results']
 
-    places.sort(key=sortStuff, reverse=True)
+    for i in range(0,len(places)):
+        places[i]['pred'] = predict([org_data(places[i],types[k],[types[k]['type']])])[0]
+    places.sort(key=sortStuff(), reverse=True)
     i=0
+    # Replace current while check with the below once data is sorted out
+    # while places[i]['name'] in past or 'opening_hours' not in places[i] or 'open_now' not in places[i]['opening_hours'] or not places[i]['opening_hours']['open_now']:
     while places[i]['name'] in past:
         i+=1
     # print(places[i])
@@ -76,7 +82,7 @@ def recm():
 @app.route('/testbitch', methods=['GET'])
 def testbitch():
     places = gmaps.places_nearby(keyword="pizza", location=(42.2800266,-83.7471391), radius=24140, type='restaurant')['results']
-    return str(places[0]['price_level'])
+    return str(places[0])
     loc = (places[0]['geometry']['location']['lat'],places[0]['geometry']['location']['lng'])
     temp = gmaps.distance_matrix(origins=(42.2800266,-83.7471391),destinations=loc)['rows'][0]['elements'][0]['distance']['value']* 0.000621371
     places.sort(key=sortStuff, reverse=True)
@@ -106,7 +112,7 @@ def train():
 
 def sortStuff(json):
     try:
-        return json['rating']
+        return json['pred']
     except:
         return 0
 

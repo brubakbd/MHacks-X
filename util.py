@@ -38,7 +38,7 @@ def org_data(data, prefs, rprefs):
         if 'rating' in j:
             arr[count][129] = j['rating'] / 5
         for i in rprefs:
-            if types.index(i['type']) != 'dummy':
+            if i['type'] != 'dummy':
                 m = types.index(i['type'])
                 arr[count][m+130] = 1
         if 'price_level' in j:

@@ -43,6 +43,7 @@ def recm():
     print("types", types)
     for i in range(2,5):
         if len(types) < i:
+            print i-1
             types[i-1] = {'weight':0, 'type':"dummy"}
     k=0
     if r < types[3]['weight']:

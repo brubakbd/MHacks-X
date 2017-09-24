@@ -32,16 +32,16 @@ def org_data(data, prefs, rprefs):
 
     for i in prefs:
         m = types.index(i['type'])
-        arr[m] = 1
+        arr[0][m] = 1
     arr[129] = data['grating'] / 5
 
     for i in rprefs:
         m = types.index(i)
-        arr[m + 130] = 1
+        arr[0][m + 130] = 1
 
     plevel = 2
     if 'price_level' in data:
         plevel = data['price_level']
-    arr[259] = plevel / 4
+    arr[0][259] = plevel / 4
     x = np.array(arr, dtype='float32')
     return x

@@ -31,6 +31,7 @@ def main():
 @app.route('/recm', methods=['POST'])
 def recm():
     data = json.loads(request.data)
+    print("data", data)
     types = data['types']
     past = data['past']
     loc = data['location']
@@ -39,6 +40,7 @@ def recm():
     # print data
     # print types[3]
     places = None
+    print("types", types)
     k=0
     if r < types[3]['weight']:
         k=3
